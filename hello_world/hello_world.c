@@ -2,7 +2,9 @@
 
 int main(void) {
 
-  printf("Hello world Nivel C");
+  printf("Hello world, we are Nivel C\n");
+  printf("Press [Enter] to exit.");
+  getchar();
 
   return(0);
 }
