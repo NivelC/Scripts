@@ -92,7 +92,7 @@ void setup() {
   Serial.begin(9600);
 }
 
-// This can run up to 16000 times per second, but most of the time runs twice per second.
+// This can run up to 16000 times per second, but most of the time runs around 3000 times per second.
 void loop() {
   // check if system should be on
   checkSwitch();
