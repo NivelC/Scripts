@@ -2,42 +2,42 @@
 Pomodoro Tracker 1.0 by Damian M.G.(IgorJorobus)
 ================================================
 
-Materiales físicos utilizados
-=============================
-* 3 leds 5mm verdes
-* 2 leds 5mm azules
-* 1 led 5mm rojo
-* 8 resistencias 100 ohm
+Physic needed materials
+=======================
+* 3 leds 5mm green
+* 2 leds 5mm blue
+* 1 led 5mm red
+* 8 resistances 100 ohm
 * 1 buzzer
 * 1 switch
 * Arduino Uno
 * Cables 
 
-Para ensamblar
-==============
-* Soldador
-* Aislador(silicona)
-* Contenedor
+To assemble
+===========
+* Welder
+* Insulator(silicone)
+* Container
 
-Pines utilizados
+Pins used
 ================
-* 2 = OUTPUT, led verde 0
-* 3 = OUTPUT, led verde 1
-* 4 = OUTPUT, led verde 2
-* 5 = OUTPUT, led azul 0
-* 6 = OUTPUT, led azul 1
-* 7 = OUTPUT, led rojo 0
+* 2 = OUTPUT, green led 0
+* 3 = OUTPUT, green led 1
+* 4 = OUTPUT, green led 2
+* 5 = OUTPUT, blue led 0
+* 6 = OUTPUT, blue led 1
+* 7 = OUTPUT, red led 0
 * 8 = INPUT, switch
 * 12 = OUTPUT, buzzer
 
-Cambios vs. versión 0.1
+Changes vs. version 0.1
 =======================
-* Se construye software con Ruby en donde ocurre mucho de lo que hacía el Arduino mismo.
-* Se utiliza fuertemente la lectura del puerto serie.
-* El Arduino pasa a ser bastante mas pasivo. Se elimina el botón de inicio/break.
-* Solamente se deja el switch que define si el Arduino está activo, leyendo, si no está activo todos los leds se apagan y queda en hang.
-* El sistema no tiene que hacer flush del puerto serie por si mismo, salvo cuando se censa el switch "on".
-* El sistema puede leer un evento o un estado. El estado es uno de pomodoro running, break running o stopped. Los eventos son cualquiera de los juegos de luces y sonidos.
+* Software built with Ruby now replaces many functions that the Arduino have been doing by itself.
+* Strongly use of serial port reading.
+* Arduino becomes more passive. Button start/break isn't needed anymore.
+* Now the switch that defines if Arduino is active has become the only input from the Arduino itself. If it is not active all leds are off and remains hanging.
+* The system must not flush the serial port by itself, only if the switch is censused "on".
+* The system can read an event or a state. The state can be pomodor running, break running or stopped. The events are any light game or sounds.
 */
 
 // include aliases of sounds as frecuencies
@@ -174,7 +174,7 @@ void inspectSerialPortInput() {
       } else if(code == "SHB") {
         soundHappyBuzzer();
       } 
-    else
+    } else {
       // state, kind of "16R0288", this is pomodoros completed, actual state, seconds since beggining of actual phase, first thing of interest is state taking part now
       switch(code[2]) {
         case 'R':
